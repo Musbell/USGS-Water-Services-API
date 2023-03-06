@@ -1,0 +1,127 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "USGS Water Services API",
+    "description": "You can use this service to retrieve recent and historical values for streamflow as well as data for other regular time-series parameters served by the USGS. This service provides these USGS water data in Extensible Markup Language (XML), Javascript Object Notation (JSON) and the legacy RDB (tab-delimited) format currently available from the USGS Water Data for the Nation site External Link. More media types will follow.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "USGS",
+      "url": "https://www.usgs.gov/"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://waterservices.usgs.gov/nwis/iv"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["SIte"],
+        "summary": "Get site information",
+        "description": "A list of site numbers. You can specify up to 100 sites. Sites are comma separated. Sites may be prefixed with an optional agency code followed by a colon. If you don't know the site numbers you need, you can find relevant sites with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
+        "operationId": "getSite",
+        "parameters": [
+          {
+            "name": "sites",
+            "in": "query",
+            "description": "A list of site numbers. You can specify up to 100 sites. Sites are comma separated. Sites may be prefixed with an optional agency code followed by a colon. If you don't know the site numbers you need, you can find relevant sites with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "The format of the response. The default is json. The supported formats are json, rdb, and xml.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parameterCd",
+            "in": "query",
+            "description": "A list of parameter codes. You can specify up to 100 parameter codes. Parameter codes are comma separated. If you don't know the parameter codes you need, you can find relevant parameter codes with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteStatus",
+            "in": "query",
+            "description": "A list of site status codes. You can specify up to 100 site status codes. Site status codes are comma separated. If you don't know the site status codes you need, you can find relevant site status codes with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteType",
+            "in": "query",
+            "description": "A list of site type codes. You can specify up to 100 site type codes. Site type codes are comma separated. If you don't know the site type codes you need, you can find relevant site type codes with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "503": {
+            "description": "Service unavailable"
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SiteResponse": {
+        
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
