@@ -26,7 +26,7 @@
             "name": "majorFilter",
             "in": "query",
             "required": true,
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#MajorFilters'>Click to view description</a>",
+            "description": "Every query requires a major filter. Pick the major filter (sites, stateCd, huc, bBox, counties) that best retrieves the data for the sites that you are interested in. You can have only one major filter per query. If you specify more than one major filter, you will get an error. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#MajorFilters'>Click to view more details</a>",
             "schema": {
               "type": "object",
               "properties": {
@@ -35,7 +35,7 @@
                   "example": "01646500",
                   "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Single'>Click to view description</a>"
                 },
-                "stateCd": {
+                "stateCd": {    
                   "type": "string",
                   "example": "NY",
                   "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#stateCd'>Click to view description</a>"
@@ -56,8 +56,6 @@
                   "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#countyCd'>Click to view description</a>"
                 }
               },
-              "minProperties": 1,
-              "maxProperties": 1,
               "additionalProperties": false
             }
           },
