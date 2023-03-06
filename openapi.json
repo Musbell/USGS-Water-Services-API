@@ -18,7 +18,7 @@
     "/": {
       "get": {
         "tags": ["Instantaneous "],
-        "summary": "Get site information",
+        "summary": "USGS Instantaneous Values Web Service",
         "description": "A list of site numbers. You can specify up to 100 sites. Sites are comma separated. Sites may be prefixed with an optional agency code followed by a colon. If you don't know the site numbers you need, you can find relevant sites with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
         "operationId": "getSite",
         "parameters": [
@@ -35,7 +35,7 @@
                   "example": "01646500",
                   "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Single'>Click to view description</a>"
                 },
-                "stateCd": {    
+                "stateCd": {
                   "type": "string",
                   "example": "NY",
                   "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#stateCd'>Click to view description</a>"
@@ -109,6 +109,146 @@
             "schema": {
               "type": "string",
               "example": "USCE"
+            }
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Specifying'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "P7D"
+            }
+          },
+          {
+            "name": "startDT",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Specifying'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "2018-01-01"
+            }
+          },
+          {
+            "name": "endDT",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Specifying'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "2018-01-01"
+            }
+          },
+          {
+            "name": "modifiedSince",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#modifiedSince'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ISO-8601-duration"
+            }
+          },
+          {
+            "name": "altMin",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 1000
+            }
+          },
+          {
+            "name": "altMax",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 5000
+            }
+          },
+          {
+            "name": "drainAreaMin",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 1000
+            }
+          },
+          {
+            "name": "drainAreaMax",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 5000
+            }
+          },
+          {
+            "name": "aquiferCd",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#aquiferCd'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "S500EDRTRN,N100HGHPLN"
+            }
+          },
+          {
+            "name": "localAquiferCd",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#localAquiferCd'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "AL:111RGLT,AL:111RSDM"
+            }
+          },
+          {
+            "name": "wellDepthMin",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 100
+            }
+          },
+          {
+            "name": "wellDepthMax",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 500
+            }
+          },
+          {
+            "name": "holeDepthMin ",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 100
+            }
+          },
+          {
+            "name": "holeDepthMax",
+            "in": "query",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 500
             }
           }
         ],
