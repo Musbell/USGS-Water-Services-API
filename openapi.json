@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "http://waterservices.usgs.gov/nwis/iv"
+      "url": "https://waterservices.usgs.gov/nwis/iv"
     }
   ],
   "paths": {
