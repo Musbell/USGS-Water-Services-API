@@ -112,28 +112,6 @@
             }
           },
           {
-            "name": "startDT",
-            "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Specifying'>Click to view description</a>",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "2010-11-22",
-              "format": "date"
-            }
-          },
-          {
-            "name": "endDT",
-            "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Specifying'>Click to view description</a>",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "2010-11-22",
-              "format": "date"
-            }
-          },
-          {
             "name": "altMin",
             "in": "query",
             "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
