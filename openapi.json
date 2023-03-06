@@ -25,7 +25,7 @@
           {
             "name": "sites",
             "in": "query",
-            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#Single",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Single'>Click to view description</a>",
             "required": true,
             "schema": {
               "type": "string",
@@ -36,7 +36,7 @@
             "name": "format",
             "in": "query",
             "required": true,
-            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#format",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#format'>Click to view description</a>",
             "schema": {
               "enum": ["json"],
               "type": "string",
@@ -46,7 +46,7 @@
           {
             "name": "parameterCd",
             "in": "query",
-            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "string",
@@ -56,7 +56,7 @@
           {
             "name": "siteStatus",
             "in": "query",
-            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#siteStatus",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteStatus'>Click to view description</a>",
             "required": true,
             "schema": {
               "enum": ["all", "active", "inactive"],
@@ -67,7 +67,7 @@
           {
             "name": "siteType",
             "in": "query",
-            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#siteType",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteType'>Click to view description</a>",
             "required": true,
             "schema": {
               "type": "string",
@@ -77,7 +77,7 @@
           {
             "name": "agencyCd",
             "in": "query",
-            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#agencyCd",
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#agencyCd'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "string",
