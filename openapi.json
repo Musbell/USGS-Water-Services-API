@@ -118,7 +118,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "example": "2018-01-01"
+              "example": "2010-11-22",
+              "format": "date"
             }
           },
           {
@@ -128,17 +129,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "example": "2018-01-01"
-            }
-          },
-          {
-            "name": "modifiedSince",
-            "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#modifiedSince'>Click to view description</a>",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "ISO-8601-duration"
+              "example": "2010-11-22",
+              "format": "date"
             }
           },
           {
