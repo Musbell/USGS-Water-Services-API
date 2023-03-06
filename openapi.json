@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.2",
+  "openapi": "3.0.0",
   "info": {
     "title": "USGS Water Services API",
     "description": "You can use this service to retrieve recent and historical values for streamflow as well as data for other regular time-series parameters served by the USGS. This service provides these USGS water data in Extensible Markup Language (XML), Javascript Object Notation (JSON) and the legacy RDB (tab-delimited) format currently available from the USGS Water Data for the Nation site External Link. More media types will follow.",
@@ -17,19 +17,48 @@
   "paths": {
     "/": {
       "get": {
-        "tags": ["Site"],
+        "tags": ["Instantaneous "],
         "summary": "Get site information",
         "description": "A list of site numbers. You can specify up to 100 sites. Sites are comma separated. Sites may be prefixed with an optional agency code followed by a colon. If you don't know the site numbers you need, you can find relevant sites with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
         "operationId": "getSite",
         "parameters": [
           {
-            "name": "sites",
+            "name": "majorFilter",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Single'>Click to view description</a>",
             "required": true,
+            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#MajorFilters'>Click to view description</a>",
             "schema": {
-              "type": "string",
-              "example": "01646500"
+              "type": "object",
+              "properties": {
+                "sites": {
+                  "type": "string",
+                  "example": "01646500",
+                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Single'>Click to view description</a>"
+                },
+                "stateCd": {
+                  "type": "string",
+                  "example": "NY",
+                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#stateCd'>Click to view description</a>"
+                },
+                "huc": {
+                  "type": "string",
+                  "example": "01,02070010",
+                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#huc'>Click to view description</a>"
+                },
+                "bBox": {
+                  "type": "string",
+                  "example": "-83,36.5,-81,38.5",
+                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#bBox'>Click to view description</a>"
+                },
+                "countyCd": {
+                  "type": "string",
+                  "example": "51059,51061",
+                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#countyCd'>Click to view description</a>"
+                }
+              },
+              "minProperties": 1,
+              "maxProperties": 1,
+              "additionalProperties": false
             }
           },
           {
@@ -124,7 +153,7 @@
   },
   "tags": [
     {
-      "name": "Site"
+      "name": "Instantaneous "
     }
   ],
   "components": {
