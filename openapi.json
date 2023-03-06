@@ -63,7 +63,7 @@
             "name": "format",
             "in": "query",
             "required": true,
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#format'>Click to view description</a>",
+            "description": "Used to specify the output format of the data returned. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#format'>Click to view description</a>",
             "schema": {
               "enum": ["json"],
               "type": "string",
@@ -73,7 +73,7 @@
           {
             "name": "parameterCd",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd'>Click to view description</a>",
+            "description": "All parameter codes are numeric and 5 characters in length. Parameter codes are used to identify the constituent measured and the units of measure. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "string",
@@ -83,7 +83,7 @@
           {
             "name": "siteStatus",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteStatus'>Click to view description</a>",
+            "description": "Selects sites based on whether or not they are active. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteStatus'>Click to view description</a>",
             "required": true,
             "schema": {
               "enum": ["all", "active", "inactive"],
@@ -94,7 +94,7 @@
           {
             "name": "siteType",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteType'>Click to view description</a>",
+            "description": "Restricts sites to those having one or more major and/or minor site type <a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteType'>Click to view description</a>",
             "required": true,
             "schema": {
               "type": "string",
@@ -104,7 +104,7 @@
           {
             "name": "agencyCd",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#agencyCd'>Click to view description</a>",
+            "description": "The list of sites returned are filtered to return only those with the provided agency code. The agency code describes the organization that maintains the site. Only one agency code is allowed and is optional. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#agencyCd'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "string",
@@ -114,7 +114,7 @@
           {
             "name": "altMin",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
+            "description": "These arguments allows you to select instantaneous values sites where the associated sites' altitude are within a desired altitude, expressed in feet. Altitude is based on the datum used at the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -124,7 +124,7 @@
           {
             "name": "altMax",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
+            "description": "These arguments allows you to select instantaneous values sites where the associated sites' altitude are within a desired altitude, expressed in feet. Altitude is based on the datum used at the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -134,7 +134,7 @@
           {
             "name": "drainAreaMin",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
+            "description": "These arguments allows you to select principally surface water sites where the associated sites' drainage areas (watersheds) are within a desired size, expressed in square miles or decimal fractions thereof. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -144,7 +144,7 @@
           {
             "name": "drainAreaMax",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
+            "description": "These arguments allows you to select principally surface water sites where the associated sites' drainage areas (watersheds) are within a desired size, expressed in square miles or decimal fractions thereof. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -154,7 +154,7 @@
           {
             "name": "aquiferCd",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#aquiferCd'>Click to view description</a>",
+            "description": "Used to filter sites to those that exist in specified national aquifers. Note: not all sites have been associated with national aquifers. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#aquiferCd'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "string",
@@ -164,7 +164,7 @@
           {
             "name": "localAquiferCd",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#localAquiferCd'>Click to view description</a>",
+            "description": "Used to filter sites to those that exist in specified local aquifers. Note: not all sites have been associated with local aquifers. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#localAquiferCd'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "string",
@@ -174,7 +174,7 @@
           {
             "name": "wellDepthMin",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
+            "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' well depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -184,7 +184,7 @@
           {
             "name": "wellDepthMax",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
+            "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' well depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -194,7 +194,7 @@
           {
             "name": "holeDepthMin",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
+            "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' hole depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -204,7 +204,7 @@
           {
             "name": "holeDepthMax",
             "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
+            "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' hole depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "integer",
