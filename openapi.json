@@ -232,7 +232,7 @@
             }
           },
           {
-            "name": "holeDepthMin ",
+            "name": "holeDepthMin",
             "in": "query",
             "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
             "required": false,
