@@ -17,7 +17,7 @@
   "paths": {
     "/": {
       "get": {
-        "tags": ["SIte"],
+        "tags": ["Site"],
         "summary": "Get site information",
         "description": "A list of site numbers. You can specify up to 100 sites. Sites are comma separated. Sites may be prefixed with an optional agency code followed by a colon. If you don't know the site numbers you need, you can find relevant sites with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
         "operationId": "getSite",
@@ -25,46 +25,63 @@
           {
             "name": "sites",
             "in": "query",
-            "description": "A list of site numbers. You can specify up to 100 sites. Sites are comma separated. Sites may be prefixed with an optional agency code followed by a colon. If you don't know the site numbers you need, you can find relevant sites with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
+            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#Single",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "01646500"
             }
           },
           {
             "name": "format",
             "in": "query",
-            "description": "The format of the response. The default is json. The supported formats are json, rdb, and xml.",
-            "required": false,
+            "required": true,
+            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#format",
             "schema": {
-              "type": "string"
+              "enum": ["json"],
+              "type": "string",
+              "example": "json"
             }
           },
           {
             "name": "parameterCd",
             "in": "query",
-            "description": "A list of parameter codes. You can specify up to 100 parameter codes. Parameter codes are comma separated. If you don't know the parameter codes you need, you can find relevant parameter codes with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
+            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd",
             "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "00060"
             }
           },
           {
             "name": "siteStatus",
             "in": "query",
-            "description": "A list of site status codes. You can specify up to 100 site status codes. Site status codes are comma separated. If you don't know the site status codes you need, you can find relevant site status codes with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
-            "required": false,
+            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#siteStatus",
+            "required": true,
             "schema": {
-              "type": "string"
+              "enum": ["all", "active", "inactive"],
+              "type": "string",
+              "example": "all"
             }
           },
           {
             "name": "siteType",
             "in": "query",
-            "description": "A list of site type codes. You can specify up to 100 site type codes. Site type codes are comma separated. If you don't know the site type codes you need, you can find relevant site type codes with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
+            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#siteType",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "ST"
+            }
+          },
+          {
+            "name": "agencyCd",
+            "in": "query",
+            "description": "https://waterservices.usgs.gov/rest/IV-Service.html#agencyCd",
             "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "USCE"
             }
           }
         ],
@@ -105,11 +122,14 @@
       }
     }
   },
+  "tags": [
+    {
+      "name": "Site"
+    }
+  ],
   "components": {
     "schemas": {
-      "SiteResponse": {
-        
-      },
+      "SiteResponse": {},
       "Error": {
         "type": "object",
         "properties": {
