@@ -112,16 +112,6 @@
             }
           },
           {
-            "name": "period",
-            "in": "query",
-            "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Specifying'>Click to view description</a>",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "P7D"
-            }
-          },
-          {
             "name": "startDT",
             "in": "query",
             "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Specifying'>Click to view description</a>",
