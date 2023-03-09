@@ -109,8 +109,7 @@
             "description": "These arguments allows you to select instantaneous values sites where the associated sites' altitude are within a desired altitude, expressed in feet. Altitude is based on the datum used at the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
             "required": false,
             "schema": {
-              "type": "integer",
-              "example": 1000
+              "type": "integer"
             }
           },
           {
@@ -119,8 +118,7 @@
             "description": "These arguments allows you to select instantaneous values sites where the associated sites' altitude are within a desired altitude, expressed in feet. Altitude is based on the datum used at the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
             "required": false,
             "schema": {
-              "type": "integer",
-              "example": 5000
+              "type": "integer"
             }
           },
           {
@@ -129,8 +127,7 @@
             "description": "These arguments allows you to select principally surface water sites where the associated sites' drainage areas (watersheds) are within a desired size, expressed in square miles or decimal fractions thereof. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
             "required": false,
             "schema": {
-              "type": "integer",
-              "example": 1000
+              "type": "integer"
             }
           },
           {
@@ -139,8 +136,7 @@
             "description": "These arguments allows you to select principally surface water sites where the associated sites' drainage areas (watersheds) are within a desired size, expressed in square miles or decimal fractions thereof. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
             "required": false,
             "schema": {
-              "type": "integer",
-              "example": 5000
+              "type": "integer"
             }
           },
           {
@@ -149,8 +145,7 @@
             "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' well depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
             "required": false,
             "schema": {
-              "type": "integer",
-              "example": 100
+              "type": "integer"
             }
           },
           {
@@ -159,8 +154,7 @@
             "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' well depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
             "required": false,
             "schema": {
-              "type": "integer",
-              "example": 500
+              "type": "integer"
             }
           },
           {
@@ -169,8 +163,7 @@
             "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' hole depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
             "required": false,
             "schema": {
-              "type": "integer",
-              "example": 100
+              "type": "integer"
             }
           },
           {
@@ -179,8 +172,7 @@
             "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' hole depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#holeDepthMin'>Click to view description</a>",
             "required": false,
             "schema": {
-              "type": "integer",
-              "example": 500
+              "type": "integer"
             }
           }
         ],
