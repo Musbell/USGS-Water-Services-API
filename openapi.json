@@ -23,40 +23,13 @@
         "operationId": "getSite",
         "parameters": [
           {
-            "name": "majorFilter",
+            "name": "stateCd",
             "in": "query",
             "required": true,
-            "description": "Every query requires a major filter. Pick the major filter (sites, stateCd, huc, bBox, counties) that best retrieves the data for the sites that you are interested in. You can have only one major filter per query. If you specify more than one major filter, you will get an error. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#MajorFilters'>Click to view more details</a>",
+            "description": "U.S. postal service (2-digit) state code.<a href='https://about.usps.com/who/profile/history/state-abbreviations.htm'>USPS List of State Codes</a>",
             "schema": {
-              "type": "object",
-              "properties": {
-                "sites": {
-                  "type": "string",
-                  "example": "01646500",
-                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#Single'>Click to view description</a>"
-                },
-                "stateCd": {
-                  "type": "string",
-                  "example": "NY",
-                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#stateCd'>Click to view description</a>"
-                },
-                "huc": {
-                  "type": "string",
-                  "example": "01,02070010",
-                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#huc'>Click to view description</a>"
-                },
-                "bBox": {
-                  "type": "string",
-                  "example": "-83,36.5,-81,38.5",
-                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#bBox'>Click to view description</a>"
-                },
-                "countyCd": {
-                  "type": "string",
-                  "example": "51059,51061",
-                  "description": "<a href='https://waterservices.usgs.gov/rest/IV-Service.html#countyCd'>Click to view description</a>"
-                }
-              },
-              "additionalProperties": false
+              "type": "string",
+              "example": "NY"
             }
           },
           {
@@ -73,10 +46,11 @@
           {
             "name": "parameterCd",
             "in": "query",
-            "description": "All parameter codes are numeric and 5 characters in length. Parameter codes are used to identify the constituent measured and the units of measure. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd'>Click to view description</a>",
+            "description": "All parameter codes are numeric and 5 characters in length. Parameter codes are used to identify the constituent measured and the units of measure. Popular codes include stage (00065), discharge in cubic feet per second (00060) and water temperature in degrees Celsius (00010). <a href='https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd'>Click to view description</a>",
             "required": false,
             "schema": {
               "type": "string",
+              "enum": ["00060", "00065", "00010"],
               "example": "00060"
             }
           },
@@ -97,6 +71,24 @@
             "description": "Restricts sites to those having one or more major and/or minor site type <a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteType'>Click to view description</a>",
             "required": true,
             "schema": {
+              "enum": [
+                "AG",
+                "AS",
+                "AT",
+                "AW",
+                "ES",
+                "FA",
+                "GL",
+                "GW",
+                "LA",
+                "LK",
+                "OC",
+                "SB",
+                "SP",
+                "SS",
+                "ST",
+                "WE"
+              ],
               "type": "string",
               "example": "ST"
             }
@@ -152,26 +144,6 @@
             }
           },
           {
-            "name": "aquiferCd",
-            "in": "query",
-            "description": "Used to filter sites to those that exist in specified national aquifers. Note: not all sites have been associated with national aquifers. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#aquiferCd'>Click to view description</a>",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "S500EDRTRN,N100HGHPLN"
-            }
-          },
-          {
-            "name": "localAquiferCd",
-            "in": "query",
-            "description": "Used to filter sites to those that exist in specified local aquifers. Note: not all sites have been associated with local aquifers. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#localAquiferCd'>Click to view description</a>",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "AL:111RGLT,AL:111RSDM"
-            }
-          },
-          {
             "name": "wellDepthMin",
             "in": "query",
             "description": "These arguments allows you to select groundwater sites serving data recorded automatically where the associated sites' well depth are within a desired depth, expressed in feet from the land surface datum. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#wellDepthMin'>Click to view description</a>",
@@ -223,8 +195,14 @@
               }
             }
           },
+          "304": {
+            "description": "Not modified"
+          },
           "400": {
-            "description": "Invalid input"
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Access Forbidden"
           },
           "404": {
             "description": "Not found"
