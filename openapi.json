@@ -47,7 +47,7 @@
             "name": "parameterCd",
             "in": "query",
             "description": "All parameter codes are numeric and 5 characters in length. Parameter codes are used to identify the constituent measured and the units of measure. Popular codes include stage (00065), discharge in cubic feet per second (00060) and water temperature in degrees Celsius (00010). <a href='https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd'>Click to view description</a>",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "enum": ["00060", "00065", "00010"],
@@ -91,16 +91,6 @@
               ],
               "type": "string",
               "example": "ST"
-            }
-          },
-          {
-            "name": "agencyCd",
-            "in": "query",
-            "description": "The list of sites returned are filtered to return only those with the provided agency code. The agency code describes the organization that maintains the site. Only one agency code is allowed and is optional. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#agencyCd'>Click to view description</a>",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "USCE"
             }
           },
           {
