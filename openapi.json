@@ -94,6 +94,17 @@
             }
           },
           {
+            "name": "agencyCd",
+            "in": "query",
+            "description": "Agency code for the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#agencyCd'>Click to view description</a>",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "USGS",
+              "default": "USGS"
+            }
+          },
+          {
             "name": "altMin",
             "in": "query",
             "description": "These arguments allows you to select instantaneous values sites where the associated sites' altitude are within a desired altitude, expressed in feet. Altitude is based on the datum used at the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
