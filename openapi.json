@@ -90,7 +90,8 @@
                 "WE"
               ],
               "type": "string",
-              "example": "ST"
+              "example": "ST",
+              "default": "ST"
             }
           },
           {
