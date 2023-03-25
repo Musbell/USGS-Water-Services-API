@@ -19,8 +19,8 @@
       "get": {
         "tags": ["Instantaneous "],
         "summary": "USGS Instantaneous Values Web Service",
-        "description": "A list of site numbers. You can specify up to 100 sites. Sites are comma separated. Sites may be prefixed with an optional agency code followed by a colon. If you don't know the site numbers you need, you can find relevant sites with the NWIS Mapper (http://wdr.water.usgs.gov/nwisgmap/index.html) or on the USGS Water Data for the Nation site (http://waterdata.usgs.ogv/nwis/)",
-        "operationId": "getSite",
+        "description": "Retrieve recent and historical values for streamflow as well as data for other regular time-series parameters served by the USGS",
+        "operationId": "getInstantaneousValues",
         "parameters": [
           {
             "name": "stateCd",
