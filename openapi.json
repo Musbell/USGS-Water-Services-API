@@ -164,7 +164,7 @@
           {
             "name": "drainAreaMax",
             "in": "query",
-            "description": "These arguments allows you to select principally surface water sites where the associated sites' drainage areas (watersheds) are within a desired size, expressed in square miles or decimal fractions thereof. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
+            "description": "Maximum drainage area (watershed) size, expressed in square miles or decimal fractions thereof.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -174,7 +174,7 @@
           {
             "name": "format",
             "in": "query",
-            "description": "Used to specify the output format of the data returned. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#format'>Click to view description</a>",
+            "description": "Specify the output format of the data returned. Defaults to 'xml'",
             "schema": {
               "enum": ["xml", "json", "rdb"],
               "type": "string",
