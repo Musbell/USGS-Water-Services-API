@@ -17,7 +17,7 @@
   "paths": {
     "/": {
       "get": {
-        "tags": ["Instantaneous "],
+        "tags": ["Instantaneous"],
         "summary": "USGS Instantaneous Values Web Service",
         "description": "You must use exactly one major filter in your query. Anything more or less will result in an error",
         "operationId": "getInstantaneousValues",
@@ -25,34 +25,25 @@
           {
             "name": "sites",
             "in": "query",
-            "description": "*Major Filter* a list of site numbers up to 100 sites",
+            "description": "*Major Filter* a comma-delimited list of site numbers up to 100 sites",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "string"
             }
           },
           {
             "name": "stateCds",
             "in": "query",
-            "description": "*Major Filter* a list of U.S. postal service state codes.",
+            "description": "*Major Filter* a comma-delimited list of U.S. postal service state codes.",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "string"
             }
           },
           {
             "name": "hucs",
             "in": "query",
-            "description": "*Major Filter* A list of hydrologic unit codes (HUC) or watersheds. Only 1 major HUC can be specified per request. A major HUC has two digits. Minor HUCs must be eight digits in length. List of HUCs can be found here http://water.usgs.gov/GIS/huc_name.html",
+            "description": "*Major Filter* a comma-delimited list of hydrologic unit codes (HUC) or watersheds. Only 1 major HUC can be specified per request. A major HUC has two digits. Minor HUCs must be eight digits in length. List of HUCs can be found here http://water.usgs.gov/GIS/huc_name.html",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "string"
             }
           },
           {
@@ -66,12 +57,9 @@
           {
             "name": "countyCds",
             "in": "query",
-            "description": "*Major Filter* A list of county numbers, in a 5 digit numeric format. The first two digits of a county's code are the FIPS State Code. List of county codes: http://help.waterdata.usgs.gov/code/county_query?fmt=html",
+            "description": "*Major Filter* a comma-delimited list of county numbers, in a 5 digit numeric format. The first two digits of a county's code are the FIPS State Code. List of county codes: http://help.waterdata.usgs.gov/code/county_query?fmt=html",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "string"
             }
           },
           {
@@ -93,24 +81,18 @@
           {
             "name": "parameterCds",
             "in": "query",
-            "description": "All parameter codes are numeric and 5 characters in length. Parameter codes are used to identify the constituent measured and the units of measure. Popular codes include stage (00065), discharge in cubic feet per second (00060) and water temperature in degrees Celsius (00010). Full list: http://help.waterdata.usgs.gov/codes-and-parameters/parameters",
+            "description": "A comma-delimited list of parameter codes. All parameter codes are numeric and 5 characters in length. Parameter codes are used to identify the constituent measured and the units of measure. Popular codes include stage (00065), discharge in cubic feet per second (00060) and water temperature in degrees Celsius (00010). Full list: http://help.waterdata.usgs.gov/codes-and-parameters/parameters",
             "schema": {
-              "type": "array",
-              "items":  {
-                "type": "string"
-              },
+              "type": "string",
               "example": "00060"
             }
           },
           {
             "name": "siteTypes",
             "in": "query",
-            "description": "Restricts sites to those having one or more major and/or minor site type. Full list: http://help.waterdata.usgs.gov/site_tp_cd",
+            "description": "A comma-delimited list of site types. Restricts sites to those having one or more major and/or minor site type. Full list: http://help.waterdata.usgs.gov/site_tp_cd",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "string"
             }
           },
           {
@@ -227,7 +209,7 @@
   },
   "tags": [
     {
-      "name": "Instantaneous "
+      "name": "Instantaneous"
     }
   ],
   "components": {
