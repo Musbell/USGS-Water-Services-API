@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "USGS Water Services API",
-    "description": "You can use this service to retrieve recent and historical values for streamflow as well as data for other regular time-series parameters served by the USGS. This service provides these USGS water data in Extensible Markup Language (XML), Javascript Object Notation (JSON) and the legacy RDB (tab-delimited) format currently available from the USGS Water Data for the Nation site External Link. More media types will follow.",
+    "description": "You can use this service to retrieve recent and historical values for streamflow as well as data for other regular time-series parameters served by the USGS. This service provides these USGS water data in XML (default), JSON or RDB.",
     "version": "1.0.0",
     "contact": {
       "name": "USGS",
@@ -19,46 +19,104 @@
       "get": {
         "tags": ["Instantaneous "],
         "summary": "USGS Instantaneous Values Web Service",
-        "description": "Retrieve recent and historical values for streamflow as well as data for other regular time-series parameters served by the USGS",
+        "description": "You must use exactly one major filter in your query. Anything more or less will result in an error",
         "operationId": "getInstantaneousValues",
         "parameters": [
           {
-            "name": "stateCd",
+            "name": "sites",
             "in": "query",
-            "required": true,
-            "description": "U.S. postal service (2-digit) state code.<a href='https://about.usps.com/who/profile/history/state-abbreviations.htm'>USPS List of State Codes</a>",
+            "description": "*Major Filter* a list of site numbers up to 100 sites",
             "schema": {
-              "type": "string",
-              "example": "NY"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
-            "name": "format",
+            "name": "stateCds",
             "in": "query",
-            "required": true,
-            "description": "Used to specify the output format of the data returned. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#format'>Click to view description</a>",
+            "description": "*Major Filter* a list of U.S. postal service state codes.",
             "schema": {
-              "enum": ["json"],
-              "type": "string",
-              "example": "json"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
-            "name": "parameterCd",
+            "name": "hucs",
             "in": "query",
-            "description": "All parameter codes are numeric and 5 characters in length. Parameter codes are used to identify the constituent measured and the units of measure. Popular codes include stage (00065), discharge in cubic feet per second (00060) and water temperature in degrees Celsius (00010). <a href='https://waterservices.usgs.gov/rest/IV-Service.html#parameterCd'>Click to view description</a>",
-            "required": true,
+            "description": "*Major Filter* A list of hydrologic unit codes (HUC) or watersheds. Only 1 major HUC can be specified per request. A major HUC has two digits. Minor HUCs must be eight digits in length. List of HUCs can be found here http://water.usgs.gov/GIS/huc_name.html",
             "schema": {
-              "type": "string",
-              "enum": ["00060", "00065", "00010"],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "bBox",
+            "in": "query",
+            "description": "*Major filter* a contiguous range of decimal latitude and longitude, starting with the west longitude, then the south latitude, then the east longitude, and then the north latitude with each value separated by a comma, e.g. '-83,36.5,-81,38.'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "countyCds",
+            "in": "query",
+            "description": "*Major Filter* A list of county numbers, in a 5 digit numeric format. The first two digits of a county's code are the FIPS State Code. List of county codes: http://help.waterdata.usgs.gov/code/county_query?fmt=html",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "startDt",
+            "in": "query",
+            "description": "Start of date range in ISO-8601 format, e.g. 2014-03-20T00:00Z",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDt",
+            "in": "query",
+            "description": "End of date range in ISO-8601 format, e.g. 2014-03-20T00:00Z",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parameterCds",
+            "in": "query",
+            "description": "All parameter codes are numeric and 5 characters in length. Parameter codes are used to identify the constituent measured and the units of measure. Popular codes include stage (00065), discharge in cubic feet per second (00060) and water temperature in degrees Celsius (00010). Full list: http://help.waterdata.usgs.gov/codes-and-parameters/parameters",
+            "schema": {
+              "type": "array",
+              "items":  {
+                "type": "string"
+              },
               "example": "00060"
+            }
+          },
+          {
+            "name": "siteTypes",
+            "in": "query",
+            "description": "Restricts sites to those having one or more major and/or minor site type. Full list: http://help.waterdata.usgs.gov/site_tp_cd",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
             "name": "siteStatus",
             "in": "query",
-            "description": "Selects sites based on whether or not they are active. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteStatus'>Click to view description</a>",
-            "required": true,
+            "description": "Selects sites based on whether or not they are active.",
             "schema": {
               "enum": ["all", "active", "inactive"],
               "type": "string",
@@ -66,39 +124,9 @@
             }
           },
           {
-            "name": "siteType",
-            "in": "query",
-            "description": "Restricts sites to those having one or more major and/or minor site type <a href='https://waterservices.usgs.gov/rest/IV-Service.html#siteType'>Click to view description</a>",
-            "required": true,
-            "schema": {
-              "enum": [
-                "AG",
-                "AS",
-                "AT",
-                "AW",
-                "ES",
-                "FA",
-                "GL",
-                "GW",
-                "LA",
-                "LK",
-                "OC",
-                "SB",
-                "SP",
-                "SS",
-                "ST",
-                "WE"
-              ],
-              "type": "string",
-              "example": "ST",
-              "default": "ST"
-            }
-          },
-          {
             "name": "agencyCd",
             "in": "query",
-            "description": "Agency code for the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#agencyCd'>Click to view description</a>",
-            "required": true,
+            "description": "Agency code for the site. Full list: http://help.waterdata.usgs.gov/code/agency_cd_query?fmt=html",
             "schema": {
               "type": "string",
               "example": "USGS",
@@ -108,8 +136,7 @@
           {
             "name": "altMin",
             "in": "query",
-            "description": "These arguments allows you to select instantaneous values sites where the associated sites' altitude are within a desired altitude, expressed in feet. Altitude is based on the datum used at the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
-            "required": false,
+            "description": "Minimum site altitude expressed in feet.",
             "schema": {
               "type": "integer",
               "example": 1000
@@ -118,7 +145,7 @@
           {
             "name": "altMax",
             "in": "query",
-            "description": "These arguments allows you to select instantaneous values sites where the associated sites' altitude are within a desired altitude, expressed in feet. Altitude is based on the datum used at the site. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#altMin'>Click to view description</a>",
+            "description": "Maximum site altitude expressed in feet.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -128,8 +155,7 @@
           {
             "name": "drainAreaMin",
             "in": "query",
-            "description": "These arguments allows you to select principally surface water sites where the associated sites' drainage areas (watersheds) are within a desired size, expressed in square miles or decimal fractions thereof. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#SW'>Click to view description</a>",
-            "required": false,
+            "description": "Minimum drainage area (watershed) size, expressed in square miles or decimal fractions thereof.",
             "schema": {
               "type": "integer",
               "example": 100
@@ -143,6 +169,16 @@
             "schema": {
               "type": "integer",
               "example": 500
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Used to specify the output format of the data returned. <a href='https://waterservices.usgs.gov/rest/IV-Service.html#format'>Click to view description</a>",
+            "schema": {
+              "enum": ["xml", "json", "rdb"],
+              "type": "string",
+              "example": "json"
             }
           }
         ],
